@@ -1,25 +1,29 @@
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
-
-const Recipe = ({ recipe }) => {
+function Favorites({ favorite }) {
   const navigation = useNavigation();
 
   const onPressCard = () => {
     navigation.navigate("RecipeDetail", {
-      recipeId: recipe.idMeal,
+      recipeId: favorite.idMeal,
     });
   };
-
   return (
     <TouchableOpacity style={styles.container} onPress={onPressCard}>
-      <Image source={{ uri: recipe.strMealThumb }} style={styles.recipeImage} />
+      <Image
+        source={{ uri: favorite.strMealThumb }}
+        style={styles.recipeImage}
+      />
       <Text numberOfLines={1} style={styles.text}>
-        {recipe.strMeal}
+        {favorite.strMeal}
       </Text>
     </TouchableOpacity>
   );
-};
-export default Recipe;
+}
+
+export default Favorites;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

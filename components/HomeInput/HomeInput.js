@@ -1,13 +1,16 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
+import { useDispatch } from "react-redux";
+import { fetchRecipes } from "../../store/recipesSlice";
+import { updateActiveCategory } from "../../store/categoriesSlice";
 
 const HomeInput = ({ inputText, setInputText }) => {
+  const dispatch = useDispatch();
+
+  // const onPress = () => {
+  //   dispatch(fetchRecipes(inputText));
+  //   dispatch(updateActiveCategory(inputText));
+  // };
   return (
     <View style={styles.container}>
       <TextInput
